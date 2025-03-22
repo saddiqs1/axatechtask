@@ -8,6 +8,7 @@ help:
 	@echo   test                                          - Activate the poetry environment and run the tests
 	@echo   db-up                                         - Spin up the Postgres database using Docker Compose
 	@echo   db-down                                       - Tear down the Postgres database
+	@echo   db-fresh                                      - Spin up the Postgres database and run the migrations (good for first time usage)
 	@echo   db-migration-create name='MIGRATION NAME'     - Create migration
 	@echo   db-migration-up                               - Run migrations to the latest available migration
 	@echo   db-migration-down                             - Downgrade the most recent migration
@@ -23,6 +24,9 @@ db-up:
 
 db-down:
 	@docker-compose down
+
+db-fresh:
+	@docker-compose up -d && @poetry install --quiet && @poetry run alembic upgrade head
 
 db-migration-create:
 	@poetry install --quiet && @poetry run alembic revision -m '$(name)'

@@ -10,6 +10,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.sql import text
 
 
 # revision identifiers, used by Alembic.
@@ -44,6 +45,14 @@ def upgrade() -> None:
             {'id': 3, 'task': 'Dentist appointment', 'due_date': datetime(2025, 6, 23, 16, 15)},
             {'id': 4, 'task': 'Figure out how to make apple crumble', 'due_date': None},
         ]
+    )
+
+    op.get_bind().execute(text(
+        """
+            SELECT setval('tasks_id_seq', (SELECT MAX(id) FROM tasks));
+			ALTER TABLE tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
+        """
+        )
     )
 
 
