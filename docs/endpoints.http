@@ -1,0 +1,12 @@
+GET http://localhost:5000/tasks
+
+###
+
+POST http://localhost:5000/tasks
+content-type: application/json
+
+{
+    "task": "this is a random task that is due",
+    "due_by": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
