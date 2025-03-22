@@ -1,15 +1,15 @@
 from flask import Blueprint, request, jsonify
 from services.task_service import add_task, list_tasks
 
-tasks_api_bp = Blueprint('tasks', __name__, url_prefix='/tasks')
+tasks_bp = Blueprint('tasks', __name__, url_prefix='/tasks')
 
-@tasks_api_bp.route('', methods=['GET'])
+@tasks_bp.route('', methods=['GET'])
 def get_tasks():
     """Retrieve all tasks."""
     tasks = list_tasks()
     return jsonify({"tasks": tasks})
 
-@tasks_api_bp.route('', methods=['POST'])
+@tasks_bp.route('', methods=['POST'])
 def create_task():
     """Create a new task with a 'task' description and a 'due_by' timestamp."""
     data = request.get_json()

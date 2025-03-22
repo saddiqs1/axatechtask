@@ -1,12 +1,12 @@
 from dotenv import load_dotenv
 from flask import Flask
-from blueprints.tasks_api import tasks_api_bp
+from routes.tasks import tasks_bp
 
-load_dotenv()
+load_dotenv(dotenv_path="../")
 
 def create_app():
     app = Flask(__name__)
-    app.register_blueprint(tasks_api_bp)
+    app.register_blueprint(tasks_bp)
     return app
 
 if __name__ == '__main__':

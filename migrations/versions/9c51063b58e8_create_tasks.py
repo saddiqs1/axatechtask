@@ -41,7 +41,8 @@ def upgrade() -> None:
         [
             {'id': 1, 'task': 'Create a presentation on chairs for Mr. Austin', 'due_date': datetime(2025, 1, 15, 10, 30)},
             {'id': 2, 'task': 'Have an april fools joke ready', 'due_date': datetime(2025, 4, 1)},
-            {'id': 3, 'task': 'Dentist appointment', 'due_date': datetime(2025, 6, 23, 16, 15)}
+            {'id': 3, 'task': 'Dentist appointment', 'due_date': datetime(2025, 6, 23, 16, 15)},
+            {'id': 4, 'task': 'Figure out how to make apple crumble', 'due_date': None},
         ]
     )
 
