@@ -1,4 +1,7 @@
 # In-memory list to store tasks.
+from db import db
+from models.task import Task
+
 tasks = []
 
 def add_task(data):
@@ -13,4 +16,6 @@ def add_task(data):
 
 def list_tasks():
     """Return the list of all tasks."""
-    return tasks
+    tasks_from_db = db.session.execute(db.select(Task)).scalars()
+    t = [ta.task for ta in tasks_from_db]
+    return t
