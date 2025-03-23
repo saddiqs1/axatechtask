@@ -6,7 +6,7 @@ from models.task import Task
 
 class TaskCreationSchema(Schema):
     task = fields.String(required=True)
-    due_date = fields.DateTime(required=True, format="%d-%m-%Y %H:%M")
+    due_date = fields.DateTime(required=False, format="%d-%m-%Y %H:%M")
 
     @validates("due_date")
     def validates_due_date(self, value):
