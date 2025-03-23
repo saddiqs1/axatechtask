@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from routes.tasks import tasks_bp
+from routes.health import health_bp
+from routes.errors import error_bp
 from db import db
 
 load_dotenv()
@@ -12,6 +14,8 @@ def create_app():
     db.init_app(app)
 
     app.register_blueprint(tasks_bp)
+    app.register_blueprint(health_bp)
+    app.register_blueprint(error_bp)
     return app
 
 if __name__ == '__main__':

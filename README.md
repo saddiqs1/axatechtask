@@ -7,10 +7,8 @@ This is a simple application which allows you to manage (view and create) a list
 - [ ] Web UI to use to interact with api
   - [ ] list all notes page
   - [ ] add note button
-- [ ] GET all notes endpoint
-- [ ] POST new note endpoint
-  - [ ] sanitise date/time input, only accept certain format
 - [ ] tests
+- [ ] observability
 
 ## Pre-Requisites
 
