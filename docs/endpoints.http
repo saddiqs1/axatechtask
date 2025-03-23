@@ -10,7 +10,17 @@ POST http://localhost:5000/tasks
 content-type: application/json
 
 {
-    "task": "this is a random task that is due",
+    "task": "this is a random task that is due at some point",
     "due_date": "27-03-2025 15:30"
+}
+
+###
+
+POST http://localhost:5000/tasks
+content-type: application/json
+
+{
+    "task": "THIS WILL FAIL DUE",
+    "due_date": "27-03-2025 15:30 asdasda"
 }
 
